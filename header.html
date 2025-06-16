@@ -1,0 +1,120 @@
+<header>
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html">
+        <img src="logo.png" alt="شعار تصاميم" class="site-logo">
+      </a>
+    </div>
+
+    <button class="menu-toggle">☰</button>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="#services">الخدمات</a></li>
+      <li><a href="#portfolio">الأعمال</a></li>
+      <li><a href="about.html">من نحن</a></li>
+      <li><a href="#form-contact">تواصل معنا</a></li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  header {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    padding: 15px 5%;
+    margin: auto;
+  }
+
+  .site-logo {
+    height: 40px;
+    max-width: 150px;
+    object-fit: contain;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+  }
+
+  .nav-links a:hover {
+    color: #007bff;
+  }
+
+  .menu-toggle {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+      color: #4a00e0;
+    }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      background: #fff;
+      flex-direction: column;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.show {
+      display: flex;
+    }
+
+    .nav-links li {
+      padding: 12px 0;
+    }
+
+    .site-logo {
+      height: 32px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuButton = document.querySelector(".menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+
+    if (menuButton && navLinks) {
+      menuButton.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+      });
+
+      navLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("show");
+        });
+      });
+    }
+  });
+</script>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>من نحن | تصاميم</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      margin: 0;
+      background: #f0f2f5;
+      color: #333;
+    }
+
+    main {
+      padding: 60px 5% 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #4a00e0;
+      margin-bottom: 20px;
+    }
+
+    section {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+      margin-top: 30px;
+    }
+
+    section p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #555;
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 20px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+
+    .back-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #4a00e0;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.back-btn:hover {
+  background-color: #007bff;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- الهيدر -->
+  <div id="header-container"></div>
+
+  <main>
+    <h1>من نحن</h1>
+
+    <section>
+      <h2>رؤيتنا</h2>
+      <p>
+        أن نكون الشركة الرائدة في تقديم حلول التصميم الإبداعي، بتركيز على الابتكار، والجودة، وتجربة العميل.
+        نعمل على تمكين رواد الأعمال والشركات من التعبير عن هويتهم البصرية بشكل احترافي وجذاب.
+      </p>
+    </section>
+
+    <section>
+      <h2>رسالتنا</h2>
+      <p>
+        تقديم خدمات تصميم شاملة وعالية الجودة تشمل الشعارات، المواقع، التطبيقات، والمخططات ثلاثية الأبعاد،
+        مع التزام تام بالتميز، والدقة، والالتزام بمواعيد التسليم لتحقيق رضا عملائنا.
+      </p>
+    </section>
+    <div style="text-align: center; margin-top: 40px;">
+  <a href="index.html" class="back-btn">العودة للصفحة الرئيسية</a>
+</div>
+
+  </main>
+
+  <!-- الفوتر -->
+  <div id="footer-container"></div>
+
+  <!-- تحميل الهيدر والفوتر -->
+  <script>
+    fetch("header.html").then(res => res.text()).then(data => {
+      document.getElementById("header-container").innerHTML = data;
+
+      // إعادة تفعيل زر القائمة بعد تحميل الهيدر
+      const menuButton = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+
+      if (menuButton && navLinks) {
+        menuButton.addEventListener("click", () => {
+          navLinks.classList.toggle("show");
+        });
+      }
+    });
+
+    fetch("footer.html").then(res => res.text()).then(data => {
+      document.getElementById("footer-container").innerHTML = data;
+    });
+  </script>
+</body>
+</html>
