@@ -37,9 +37,14 @@
   }
 
   .site-logo {
-    height: 40px;
-    max-width: 150px;
+    height: 200px;
+    max-width: 250px;
     object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+
+  .site-logo:hover {
+    transform: scale(1.05);
   }
 
   .nav-links {
@@ -95,11 +100,10 @@
     }
 
     .site-logo {
-      height: 32px;
+      height: 100px;
     }
   }
 </style>
-
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
